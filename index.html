@@ -1,3 +1,4 @@
+                
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="index.css">
     <style>
              :root {
-            --primary: #de0c0c;
+            --primary: #e60000; /* stronger Airtel-like red */
             /* Brand color */
             --secondary: #333333;
             --accent: #0077b6;
@@ -285,34 +286,111 @@
             }
         }
 
-        /* Hero (telecom-like) with red gradient */
+        /* Hero (telecom-like) with strong red brand and captive/connect card */
         .hero-section {
-            background: linear-gradient(135deg, rgba(222,12,12,0.95) 0%, rgba(163,8,8,0.9) 60%), url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;
+            background: linear-gradient(180deg, rgba(230,0,0,1) 0%, rgba(198,0,0,0.95) 60%);
             color: #fff;
-            padding: 80px 0 140px 0;
+            padding: 40px 0 120px 0;
             position: relative;
-            overflow: hidden;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
+            overflow: visible;
         }
 
         .hero-content {
             z-index: 2;
+            margin-top: 50px;
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(8,10,20,0.45), rgba(8,10,20,0.6));
+            pointer-events: none;
             z-index: 1;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
         }
 
         .plans-wrapper {
             position: relative;
             z-index: 3;
             margin-top: -70px; /* overlap hero */
+        }
+
+        /* Airtel-like WiFi connect card */
+        .wifi-card {
+            max-width: 420px;
+            margin: 0 auto;
+            background: #fff;
+            color: #ddd;
+            border-radius: 16px;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.18);
+            overflow: hidden;
+            transform: translateY(40px);
+            position: relative;
+            z-index: 4;
+        }
+
+        .wifi-card .top {
+            background: var(--primary);
+            color: #fff;
+            padding: 22px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .wifi-brand {
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.6px;
+            font-size: 1.1rem;
+        }
+
+        .wifi-body {
+            padding: 18px 20px 22px 20px;
+        }
+
+        .ssid-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .ssid {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #111;
+        }
+
+        .signal {
+            display: inline-grid;
+            grid-auto-flow: column;
+            gap: 4px;
+            align-items: end;
+        }
+
+        .bar { width:6px; background: #eee; height:8px; border-radius:2px; }
+        .bar.active { background: var(--primary); }
+
+        .connect-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(90deg,var(--primary), #c20000);
+            box-shadow: 0 8px 24px rgba(230,0,0,0.22);
+        }
+
+        .small-muted { color: #dddddddc; font-size:0.9rem }
+
+        @media (min-width: 768px){
+            .hero-grid { display:flex; gap:28px; align-items:center; }
+            .hero-left{ flex:1 }
+            .hero-right{ width:420px }
         }
 
         .plan-card {
@@ -360,9 +438,7 @@
         }
 
         /* featured plan accent */
-        .plan-card.featured {
-            border: 2px solid var(--primary);
-        }
+        
 
         .badge-plan {
             background: var(--primary);
@@ -406,28 +482,41 @@
     <section id="support"></section>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <div class="row align-items-center">
-                <div class="col-md-7">
-                    <h1 class="hero-title">Fast, Reliable Broadband & Digital TV</h1>
-                    <p class="hero-subtitle">Choose plans built for streaming, gaming and business — affordable pricing and easy installation across Bhupalpally.</p>
-                        <div class="ott-logos d-flex align-items-center mb-3" style="gap:16px;">
-                            <img src="https://yt3.googleusercontent.com/CvgBA1ypUZNxOjiCX0l1V2FbAm7oSDPZE4YkMvkpT_4iLXQ3IXWVtBgWnznHxgtcUoj50TXqZA=s900-c-k-c0x00ffffff-no-rj" alt="Netflix" style="height:32px;  border-radius:6px; padding:2px;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png" alt="Prime Video" style="height:32px;  border-radius:6px; padding:2px;">
-                            <img src="https://www.livemint.com/lm-img/img/2025/02/14/optimize/Screenshot_2025-02-14_065533_1739496378365_1739517681557.png" alt="Hotstar" style="height:32px;  border-radius:6px; padding:2px;">
-                            <img src="https://play-lh.googleusercontent.com/hTyywmiwIURzSWU1GD_dG9rMDCMPC0jCL1SRzm6gxjo0SUZuaFkUerN0kIkzCjZTn7w" alt="Zee5" style="height:32px;  border-radius:6px; padding:2px;">
-                            <img src="https://images.sftcdn.net/images/t_app-icon-m/p/9f01fe3e-99bf-11e6-81dc-676fb6608552/4165599953/sony-liv-logo" alt="SonyLiv" style="height:32px; border-radius:6px; padding:2px;">
-                                                        <img src="https://play-lh.googleusercontent.com/jFi2iC10wQJ42gu-DO2CMeIcN3qcmNQHtY5EBT_wtp4jCIozS4n3Q9pA7ZloDUGHHw" alt="SonyLiv" style="height:32px; border-radius:6px; padding:2px;">
-                            <img src="https://play-lh.googleusercontent.com/UiUbpQjyTs24NtBNPF7nt2QiZeR49C7HQOjqnf8Tovaa535uO9zyNOgx56xg9rJYbw" alt="SonyLiv" style="height:32px; border-radius:6px; padding:2px;">
-
-                            <img src="https://pbs.twimg.com/profile_images/1945801426694701056/cerNT9oG_400x400.jpg" alt="SonyLiv" style="height:32px; border-radius:6px; padding:2px;">
-                        </div>
-                    <div>
-                        <a href="#plans" class="btn btn-primary me-2">View Plans</a>
-                        <a href="tel:7013186591" class="btn btn-outline-light">Call to Order</a>
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <h1 class="hero-title">Connect to RB Fiber Hotspot</h1>
+                    <p class="hero-subtitle">Secure, fast and reliable Wi‑Fi for home and business. Tap Connect to join the network.</p>
+                    <div style="margin-top:18px;">
+                        <a href="#plans" class="btn btn-light me-2" style="font-weight:700;color:#b71c1c;">View Plans</a>
+                        <a href="tel:7013186591" class="btn btn-outline-light" style="border-color:rgba(255,255,255,0.35);color:#fff">Call to Order</a>
                     </div>
                 </div>
-                <div class="col-md-5 text-md-end d-none d-md-block">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=60" alt="wifi" style="max-width:320px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.35)">
+                <div class="hero-right">
+                    <div class="wifi-card" id="wifiCard">
+                        <div class="top">
+                            <div>
+                                <div class="wifi-brand">RB FIBER</div>
+                                <div class="small-muted" style="opacity:0.95">Guest Wi‑Fi · Secure</div>
+                            </div>
+                            <div style="margin-left:auto;text-align:right;">
+                                <div style="font-size:0.9rem;font-weight:700">Free</div>
+                                <div class="small-muted">No login required</div>
+                            </div>
+                        </div>
+                        <div class="wifi-body">
+                            <div class="ssid-row">
+                                <div class="ssid">RB_FIBER_FREE</div>
+                                <div class="signal" id="signalBars" aria-hidden="true">
+                                    <div class="bar" style="height:8px"></div>
+                                    <div class="bar" style="height:12px"></div>
+                                    <div class="bar" style="height:18px"></div>
+                                    <div class="bar" style="height:24px"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2 small-muted">Status: <span id="wifiStatus">Not connected</span></div>
+                            <button class="connect-btn" id="connectBtn">Connect</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -440,36 +529,98 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="plan-card">
                         <div class="plan-header text-center">
-                            <div class="badge-plan">Popular</div>
-                            <h5 class="mb-1">Basic</h5>
-                            <div class="plan-price">Rs. 499<span style="font-size:0.6rem;font-weight:600">/mo</span></div>
-                            <div style="font-size:0.85rem;opacity:0.9">18+ OTTs and 30 Mbps Speed Unlimited Wi-Fi</div>
+                                                        <div class="badge-plan">Best Value</div>
+
+                            <div class="plan-price">Rs. 349<span style="font-size:0.6rem;font-weight:600">/mo</span></div>
+                            <div style="font-size:0.85rem;opacity:0.9">30 Mbps Speed Unlimited Wi-Fi</div>
                         </div>
                         <ul class="plan-features">
                             <li>Unlimited Data</li>
-                            <li>Free Router</li>
                             <li>Free Installation</li>
                             <li>24/7 Support</li>
-                            <li>800+ channels</li>
                         </ul>
+                        <button class="order-now-btn" data-plan="Rs. 349 - 30 Mbps" style="width:50%;margin-top:8px;padding:10px 0;border:1px solid #e60000;color:#e60000;font-weight:600;border-radius:50px;">Order Now</button>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
                     <div class="plan-card featured">
                         <div class="plan-header text-center">
-                            <div class="badge-plan">Best Value</div>
-                            <h5 class="mb-1">Permium</h5>
-                            <div class="plan-price">Rs. 549<span style="font-size:0.6rem;font-weight:600">/mo</span></div>
-                            <div style="font-size:0.85rem;opacity:0.9">22+ OTTs and 30 Mbps Speed Unlimited Wi-Fi</div>
+                                                        <div class="badge-plan">Popular</div>
+
+                            <div class="plan-price">Rs. 499<span style="font-size:0.6rem;font-weight:600">/mo</span></div>
+                            <div style="font-size:0.85rem;opacity:0.9">50 Mbps Speed Unlimited Wi-Fi</div>
                         </div>
                         <ul class="plan-features">
                             <li>Unlimited Data</li>
-                            <li>Free Router</li>
                             <li>Free Installation</li>
                             <li>24/7 Support</li>
-                            <li>800+ channels</li>
                         </ul>
+                        <button class="order-now-btn" data-plan="Rs. 499 - 50 Mbps" style="width:50%;margin-top:8px;padding:10px 0;border:1px solid #e60000;color:#e60000;font-weight:600;border-radius:50px;">Order Now</button>
+    <style>
+        .order-now-btn {
+            transition: all 0.3s ease;
+            background-color: transparent;
+            align-items: center;
+            margin-left: 70px;
+
+        }
+        
+    </style>
+    <!-- Overlay Form -->
+    <div id="orderFormOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1000;align-items:center;justify-content:center;">
+        <div style="background:#fff;padding:20px;border-radius:8px;width:90%;max-width:400px;box-shadow:0 8px 24px rgba(0,0,0,0.2);">
+            <h4 style="margin-bottom:20px;color:#e60000;border-bottom:2px solid #e60000;padding-bottom:8px;">Order Plan</h4>
+            <form id="orderForm">
+                <div class="mb-3">
+                    <label for="planDetails" class="form-label">Selected Plan</label>
+                    <input type="text" id="planDetails" class="form-control" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="userName" class="form-label">Your Name</label>
+                    <input type="text" id="userName" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="userPhone" class="form-label">Your Phone</label>
+                    <input type="tel" id="userPhone" class="form-control" placeholder="Enter your phone number" required>
+                </div>
+                <button type="submit" class="btn w-100" style="background:#e60000;color:#fff;font-weight:600;">Submit</button>
+                <button type="button" id="closeOverlay" class="btn w-100 mt-2" style="background:#333;color:#fff;font-weight:600;">Cancel</button>
+    <style>
+        #orderFormOverlay {
+            background: rgba(230, 0, 0, 0.8); /* Brand red with transparency */
+        }
+    </style>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Handle Order Now button clicks
+        document.querySelectorAll('.order-now-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const plan = this.getAttribute('data-plan');
+                document.getElementById('planDetails').value = plan;
+                document.getElementById('orderFormOverlay').style.display = 'flex';
+            });
+        });
+
+        // Close overlay
+        document.getElementById('closeOverlay').addEventListener('click', function() {
+            document.getElementById('orderFormOverlay').style.display = 'none';
+        });
+
+        // Handle form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const plan = document.getElementById('planDetails').value;
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            const message = `Hello, I would like to order the following plan: ${plan}. My name is ${name} and my phone number is ${phone}.`;
+            const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+            document.getElementById('orderFormOverlay').style.display = 'none';
+        });
+    </script>
                     </div>
                 </div>
 
@@ -477,34 +628,58 @@
                     <div class="plan-card">
                         <div class="plan-header text-center">
                             <div class="badge-plan">Family</div>
-                            <h5 class="mb-1">Ultra Premium</h5>
                             <div class="plan-price">Rs. 599<span style="font-size:0.6rem;font-weight:600">/mo</span></div>
                             <div style="font-size:0.85rem;opacity:0.9">28+ OTTs and 30 Mbps Speed Unlimited Wi-Fi</div>
+                            <div class="ott-logos d-flex flex-wrap justify-content-center mt-3" style="gap:8px;">
+                                <img src="https://www.livemint.com/lm-img/img/2025/02/14/optimize/Screenshot_2025-02-14_065533_1739496378365_1739496389150.png" alt="Hotstar" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_FGpN1UYjPgfL1t3TSybSllUdlzoLTUlLx36UUUpPm8W3-w37SNd1ZNfJbwKzwPyJ3w" alt="Sony" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/jFi2iC10wQJ42gu-DO2CMeIcN3qcmNQHtY5EBT_wtp4jCIozS4n3Q9pA7ZloDUGHHw" alt="Sun NXT" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/UiUbpQjyTs24NtBNPF7nt2QiZeR49C7HQOjqnf8Tovaa535uO9zyNOgx56xg9rJYbw" alt="Aha" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSz4lIfOafPzuCuDC7Z0p81EsvqX2etB3uew&s" alt="ETV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/morNgJE8LXAGhJTWZ71wFFVhO8HnpVurwkLuovYRQjuEGrM2-77sMtbDtrscn51tZw" alt="FanCode" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_LlkXMdRweyHVX9h-gQahj2Oy48lWwSGbV2nUkD-5OaI93eD9RoypJauombHoj_tIXKX3SYxugQCVxTfEchRmA" alt="Discovery+" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/v3QIzknOCowrsMEhQCnggLSmY7JLwIz_te01eVdlU-EHCXGWmzUjehM8fcYZy2XqptA" alt="DistroTV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/QqDDzy3LMtCfpfRhAVA8JTadBCV5377oKoGopKJzl5trZxvfyPWAK4RwibfNZLOBqw" alt="Lionsgate Play" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2024/05/39/66351c9140ae5_com.shemaroo.shemarootv-384x384.png" alt="ShemarooMe" style="height:26px;filter:grayscale(0.1);">
+                            </div>
                         </div>
                         <ul class="plan-features">
                             <li>Unlimited Data</li>
-                            <li>Free Router</li>
                             <li>Free Installation</li>
                             <li>24/7 Support</li>
                             <li>800+ channels</li>
                         </ul>
+                                                <button class="order-now-btn" data-plan="Rs. 599 - 28+ OTTs, 30 Mbps" style="width:50%;margin-top:8px;padding:10px 0;border:1px solid #e60000;color:#e60000;font-weight:600;border-radius:50px;">Order Now</button>
+
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="plan-card">
                         <div class="plan-header text-center">
                             <div class="badge-plan">Family</div>
-                            <h5 class="mb-1">Ultra Premium</h5>
                             <div class="plan-price">Rs. 649<span style="font-size:0.6rem;font-weight:600">/mo</span></div>
                             <div style="font-size:0.85rem;opacity:0.9">28+ OTTs and 50 Mbps Speed Unlimited Wi-Fi</div>
+                            <div class="ott-logos d-flex flex-wrap justify-content-center mt-3" style="gap:8px;">
+                                <img src="https://www.livemint.com/lm-img/img/2025/02/14/optimize/Screenshot_2025-02-14_065533_1739496378365_1739496389150.png" alt="Hotstar" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_FGpN1UYjPgfL1t3TSybSllUdlzoLTUlLx36UUUpPm8W3-w37SNd1ZNfJbwKzwPyJ3w" alt="Sony" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/jFi2iC10wQJ42gu-DO2CMeIcN3qcmNQHtY5EBT_wtp4jCIozS4n3Q9pA7ZloDUGHHw" alt="Sun NXT" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/UiUbpQjyTs24NtBNPF7nt2QiZeR49C7HQOjqnf8Tovaa535uO9zyNOgx56xg9rJYbw" alt="Aha" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSz4lIfOafPzuCuDC7Z0p81EsvqX2etB3uew&s" alt="ETV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/morNgJE8LXAGhJTWZ71wFFVhO8HnpVurwkLuovYRQjuEGrM2-77sMtbDtrscn51tZw" alt="FanCode" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_LlkXMdRweyHVX9h-gQahj2Oy48lWwSGbV2nUkD-5OaI93eD9RoypJauombHoj_tIXKX3SYxugQCVxTfEchRmA" alt="Discovery+" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/v3QIzknOCowrsMEhQCnggLSmY7JLwIz_te01eVdlU-EHCXGWmzUjehM8fcYZy2XqptA" alt="DistroTV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/QqDDzy3LMtCfpfRhAVA8JTadBCV5377oKoGopKJzl5trZxvfyPWAK4RwibfNZLOBqw" alt="Lionsgate Play" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2024/05/39/66351c9140ae5_com.shemaroo.shemarootv-384x384.png" alt="ShemarooMe" style="height:26px;filter:grayscale(0.1);">
+                            </div>
                         </div>
                         <ul class="plan-features">
                             <li>Unlimited Data</li>
-                            <li>Free Router</li>
                             <li>Free Installation</li>
                             <li>24/7 Support</li>
                             <li>800+ channels</li>
                         </ul>
+                                                <button class="order-now-btn" data-plan="Rs. 649 - 28+ OTTs, 50 Mbps" style="width:50%;margin-top:5px;padding:10px 0;border:1px solid #e60000;color:#e60000;font-weight:600;border-radius:50px;">Order Now</button>
+
                     </div>
                 </div>
             </div>
@@ -544,13 +719,11 @@
                             <div class="plan-card">
                                     <div class="plan-header text-center">
                                         <h5 class="mb-1">Value</h5>
-                                        <div class="plan-price" data-price-month="350" data-total-3="900" data-total-6="1800" data-total-12="3500">Rs. <span class="price-month">350</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="349" data-total-3="900" data-total-6="1800" data-total-12="3500">Rs. <span class="price-month">349</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
                                     </div>
                                 <ul class="plan-features">
                                     <li>Up to 30 Mbps</li>
-                                    <li>Unlimited Data</li>
-                                    <li>Free Router</li>
-                                    
+                                    <li>Unlimited Data</li>                                    
                                     <li>Free Installation</li>
                                 </ul>
                                 <div class="p-3 text-center">
@@ -564,12 +737,11 @@
                             <div class="plan-card">
                                     <div class="plan-header text-center">
                                         <h5 class="mb-1">Basic</h5>
-                                        <div class="plan-price" data-price-month="499">Rs. <span class="price-month">499</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="499">Rs. <span class="price-month">499</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
                                     </div>
                                 <ul class="plan-features">
                                     <li>Up to 50 Mbps</li>
                                     <li>Unlimited Data</li>
-                                    <li>Free Router</li>
                                     
                                     <li>Free Installation</li>
                                 </ul>
@@ -584,7 +756,7 @@
                             <div class="plan-card featured">
                                 <div class="plan-header text-center">
                                     <h5 class="mb-1">Premium</h5>
-                                    <div class="plan-price" data-price-month="849" data-total-3="2500" data-total-6="4500" data-total-12="8700">Rs. <span class="price-month">849</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                    <div class="plan-price" data-price-month="849" data-total-3="2500" data-total-6="4500" data-total-12="8700">Rs. <span class="price-month">849</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
                                 </div>
                                 <ul class="plan-features">
                                     <li>Up to 100 Mbps</li>
@@ -611,7 +783,7 @@
                             <div class="plan-card">
                                 <div class="plan-header text-center">
                                     <h5 class="mb-1">Basic TV</h5>
-                                        <div class="plan-price" data-price-month="149">Rs. <span class="price-month">149</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="149">Rs. <span class="price-month">149</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
                                 </div>
                                 <ul class="plan-features">
                                     <li>150+ Channels</li>
@@ -629,7 +801,7 @@
                             <div class="plan-card">
                                 <div class="plan-header text-center">
                                     <h5 class="mb-1">Value</h5>
-                                        <div class="plan-price" data-price-month="299" data-total-3="850" data-total-6="1700" data-total-12="3000">Rs. <span class="price-month">299</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="299" data-total-3="850" data-total-6="1700" data-total-12="3000">Rs. <span class="price-month">299</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
                                 </div>
                                 <ul class="plan-features">
                                     <li>250+ Channels</li>
@@ -646,7 +818,7 @@
                             <div class="plan-card featured">
                                 <div class="plan-header text-center">
                                     <h5 class="mb-1">Ultra TV</h5>
-                                        <div class="plan-price" data-price-month="399" data-total-3="1200" data-total-6="2299" data-total-12="4500">Rs. <span class="price-month">399</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="399" data-total-3="1200" data-total-6="2299" data-total-12="4500">Rs. <span class="price-month">399</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
                                 </div>
                                 <ul class="plan-features">
                                     <li>250+ Channels</li>
@@ -665,62 +837,35 @@
 
                 <div class="compare-grid d-none" data-category="bundle">
                     <div class="row g-4">
-                        <div class="col-md-4">
-                            <div class="plan-card">
-                                <div class="plan-header text-center">
-                                    <h5 class="mb-1">Basic</h5>
-                                        <div class="plan-price" data-price-month="499" data-total-3="1499" data-total-6="2999" data-total-12="5599">Rs. <span class="price-month">499</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
-                                </div>
-                                <ul class="plan-features">
-                                    <li>30 Mbps + 18+ OTTs</li>
-                                    <li>800 + Live Channels</li>
-                                    <li>Unlimited Data</li>
-                                    <li>Free Installation</li>
-                                    <li>Free Router</li>
-                                </ul>
-                                <div class="p-3 text-center">
-                                    <div class="small text-muted">Total for <span class="selected-months">1</span> month(s):</div>
-                                    <div class="h5 mt-1 price-total">Rs. <span>449</span></div>
-                                        <!-- Updated: 1m=499, 3m=1499, 6m=2999, 12m=5599 -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="plan-card featured">
-                                <div class="plan-header text-center">
-                                    <h5 class="mb-1">Permium</h5>
-                                        <div class="plan-price" data-price-month="549" data-total-3="1599" data-total-6="3199" data-total-12="5999">Rs. <span class="price-month">599</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
-                                </div>
-                                <ul class="plan-features">
-                                    <li>30 Mbps + 22+ OTTs</li>
-                                    <li>800 + Live Channels</li>
-                                    <li>Unlimited Data</li>
-                                    <li>Free Installation</li>
-                                    <li>Free Router</li>
-                                </ul>
-                                <div class="p-3 text-center">
-                                    <div class="small text-muted">Total for <span class="selected-months">1</span> month(s):</div>
-                                    <div class="h5 mt-1 price-total">Rs. <span>599</span></div>
-                                        <!-- Updated: 1m=599, 3m=1599, 6m=3199, 12m=5999 -->
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="col-md-4">
                             <div class="plan-card">
                                 <div class="plan-header text-center">
                                     <h5 class="mb-1">Ultra Permium</h5>
-                                        <div class="plan-price" data-price-month="599" data-total-3="1699" data-total-6="3499" data-total-12="6999">Rs. <span class="price-month">649</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="599" data-total-3="1699" data-total-6="3499" data-total-12="6999">Rs. <span class="price-month">599</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
+                                        <div class="ott-logos d-flex flex-wrap justify-content-center mt-3" style="gap:8px;">
+                                <img src="https://www.livemint.com/lm-img/img/2025/02/14/optimize/Screenshot_2025-02-14_065533_1739496378365_1739496389150.png" alt="Hotstar" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_FGpN1UYjPgfL1t3TSybSllUdlzoLTUlLx36UUUpPm8W3-w37SNd1ZNfJbwKzwPyJ3w" alt="Sony" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/jFi2iC10wQJ42gu-DO2CMeIcN3qcmNQHtY5EBT_wtp4jCIozS4n3Q9pA7ZloDUGHHw" alt="Sun NXT" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/UiUbpQjyTs24NtBNPF7nt2QiZeR49C7HQOjqnf8Tovaa535uO9zyNOgx56xg9rJYbw" alt="Aha" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSz4lIfOafPzuCuDC7Z0p81EsvqX2etB3uew&s" alt="ETV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/morNgJE8LXAGhJTWZ71wFFVhO8HnpVurwkLuovYRQjuEGrM2-77sMtbDtrscn51tZw" alt="FanCode" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_LlkXMdRweyHVX9h-gQahj2Oy48lWwSGbV2nUkD-5OaI93eD9RoypJauombHoj_tIXKX3SYxugQCVxTfEchRmA" alt="Discovery+" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/v3QIzknOCowrsMEhQCnggLSmY7JLwIz_te01eVdlU-EHCXGWmzUjehM8fcYZy2XqptA" alt="DistroTV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/QqDDzy3LMtCfpfRhAVA8JTadBCV5377oKoGopKJzl5trZxvfyPWAK4RwibfNZLOBqw" alt="Lionsgate Play" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2024/05/39/66351c9140ae5_com.shemaroo.shemarootv-384x384.png" alt="ShemarooMe" style="height:26px;filter:grayscale(0.1);">
+                            </div>
                                 </div>
                                 <ul class="plan-features">
-                                    <li>30 Mbps + 28+ OTTs</li>
+                                    <li>30 Mbps</li>
                                     <li>800 + Live Channels</li>
                                     <li>Unlimited Data</li>
                                     <li>Free Installation</li>
-                                    <li>Free Router</li>
                                 </ul>
+                                
                                 <div class="p-3 text-center">
                                     <div class="small text-muted">Total for <span class="selected-months">1</span> month(s):</div>
-                                    <div class="h5 mt-1 price-total">Rs. <span>649</span></div>
+                                    <div class="h5 mt-1 price-total">Rs. <span>599</span></div>
                                         <!-- Updated: 1m=649, 3m=1699, 6m=3399, 12m=6499 -->
                                 </div>
                             </div>
@@ -729,19 +874,29 @@
                             <div class="plan-card">
                                 <div class="plan-header text-center">
                                     <h5 class="mb-1">Ultra Permium +</h5>
-                                        <div class="plan-price" data-price-month="649" data-total-3="1919" data-total-6="3799" data-total-12="7499">Rs. <span class="price-month">749</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                                        <div class="plan-price" data-price-month="649" data-total-3="1999" data-total-6="3849" data-total-12="7499">Rs. <span class="price-month">649</span><small style="font-size:0.6rem;font-weight:600">/mo + no GST</small></div>
+                                        <div class="ott-logos d-flex flex-wrap justify-content-center mt-3" style="gap:8px;">
+                                <img src="https://www.livemint.com/lm-img/img/2025/02/14/optimize/Screenshot_2025-02-14_065533_1739496378365_1739496389150.png" alt="Hotstar" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_FGpN1UYjPgfL1t3TSybSllUdlzoLTUlLx36UUUpPm8W3-w37SNd1ZNfJbwKzwPyJ3w" alt="Sony" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/jFi2iC10wQJ42gu-DO2CMeIcN3qcmNQHtY5EBT_wtp4jCIozS4n3Q9pA7ZloDUGHHw" alt="Sun NXT" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/UiUbpQjyTs24NtBNPF7nt2QiZeR49C7HQOjqnf8Tovaa535uO9zyNOgx56xg9rJYbw" alt="Aha" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSz4lIfOafPzuCuDC7Z0p81EsvqX2etB3uew&s" alt="ETV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/morNgJE8LXAGhJTWZ71wFFVhO8HnpVurwkLuovYRQjuEGrM2-77sMtbDtrscn51tZw" alt="FanCode" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/_LlkXMdRweyHVX9h-gQahj2Oy48lWwSGbV2nUkD-5OaI93eD9RoypJauombHoj_tIXKX3SYxugQCVxTfEchRmA" alt="Discovery+" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/v3QIzknOCowrsMEhQCnggLSmY7JLwIz_te01eVdlU-EHCXGWmzUjehM8fcYZy2XqptA" alt="DistroTV" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://play-lh.googleusercontent.com/QqDDzy3LMtCfpfRhAVA8JTadBCV5377oKoGopKJzl5trZxvfyPWAK4RwibfNZLOBqw" alt="Lionsgate Play" style="height:26px;filter:grayscale(0.1);">
+                                <img src="https://downloadr2.apkmirror.com/wp-content/uploads/2024/05/39/66351c9140ae5_com.shemaroo.shemarootv-384x384.png" alt="ShemarooMe" style="height:26px;filter:grayscale(0.1);">
+                            </div>
                                 </div>
                                 <ul class="plan-features">
-                                    <li>50 Mbps + 28+ OTTs</li>
+                                    <li>50 Mbps</li>
                                     <li>800 + Live Channels</li>
                                     <li>Unlimited Data</li>
                                     <li>Free Installation</li>
-                                    <li>Free Router</li>
                                 </ul>
                                 <div class="p-3 text-center">
                                     <div class="small text-muted">Total for <span class="selected-months">1</span> month(s):</div>
-                                    <div class="h5 mt-1 price-total">Rs. <span>749</span></div>
-                                        <!-- Updated: 1m=649, 3m=1699, 6m=3399, 12m=6499 -->
+                                    <div class="h5 mt-1 price-total">Rs. <span>649</span></div>
                                 </div>
                             </div>
                         </div>
@@ -820,6 +975,59 @@
 
             // init
             updateTotals(1);
+        })();
+    </script>
+
+    <script>
+        // Small script to simulate WiFi connect/disconnect and animate signal bars
+        (function(){
+            const btn = document.getElementById('connectBtn');
+            const status = document.getElementById('wifiStatus');
+            const bars = document.querySelectorAll('#signalBars .bar');
+            let connected = false;
+            let animInterval = null;
+
+            function setSignal(level){
+                bars.forEach((b,i)=>{
+                    if(i < level) b.classList.add('active'); else b.classList.remove('active');
+                });
+            }
+
+            function startAnimating(){
+                let level = 1;
+                animInterval = setInterval(()=>{
+                    level = level >= bars.length ? 1 : level + 1;
+                    setSignal(level);
+                }, 400);
+            }
+
+            function stopAnimating(){
+                clearInterval(animInterval); animInterval = null;
+            }
+
+            btn && btn.addEventListener('click', function(){
+                if(!connected){
+                    // simulate connecting
+                    status.textContent = 'Connecting...';
+                    btn.disabled = true;
+                    btn.textContent = 'Connecting';
+                    startAnimating();
+                    setTimeout(()=>{
+                        connected = true;
+                        status.textContent = 'Connected';
+                        btn.textContent = 'Disconnect';
+                        btn.disabled = false;
+                        stopAnimating();
+                        setSignal(bars.length);
+                    }, 1200);
+                } else {
+                    // disconnect
+                    connected = false;
+                    status.textContent = 'Not connected';
+                    btn.textContent = 'Connect';
+                    setSignal(0);
+                }
+            });
         })();
     </script>
 
@@ -1007,7 +1215,6 @@
     </script>
 </body>
 </html>
-
 
 
 
