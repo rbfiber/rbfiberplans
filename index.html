@@ -54,9 +54,9 @@
         }
         /* Navbar styles */
         .navbar {
-            background: transparent;
             transition: background-color 0.3s, box-shadow 0.3s;
             padding: 0.6rem 1rem;
+            background-color: #ffffff;
         }
         .navbar .navbar-brand {
             font-weight: 700;
@@ -446,10 +446,94 @@
         }
 
     </style>
+        <!-- Structured data for SEO: Organization, WebSite, LocalBusiness, AggregateRating and Services -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "name": "RB Fiber",
+                    "url": "https://rbfiber.onrender.com/",
+                    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8RLrl6ewzQqZMp7KtxE0O9h5DWZ-b1stciA&s",
+                    "sameAs": [
+                        "https://facebook.com/rbfiber",
+                        "https://instagram.com/rbfiber",
+                        "https://youtube.com/rbfiber"
+                    ],
+                    "contactPoint": [
+                        {
+                            "@type": "ContactPoint",
+                            "telephone": "+91 7221030405",
+                            "contactType": "customer service",
+                            "areaServed": "IN",
+                            "availableLanguage": ["English", "Telugu"]
+                        }
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "url": "https://rbfiber.onrender.com/",
+                    "name": "RB Fiber",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://rbfiber.onrender.com/?s={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                },
+                {
+                    "@type": "LocalBusiness",
+                    "@id": "https://rbfiber.onrender.com/#localbusiness",
+                    "name": "RB Fiber",
+                    "telephone": "+91 7221030405",
+                    "priceRange": "₹149 - ₹749",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Bhupalpally",
+                        "addressRegion": "Telangana",
+                        "addressCountry": "IN"
+                    },
+                    "areaServed": ["Bhupalpally", "Warangal", "Telangana"],
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "4.6",
+                        "reviewCount": "128"
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "serviceType": "InternetService",
+                    "name": "Unlimited Home Broadband",
+                    "description": "Unlimited high-speed fiber broadband plans for home — 30 Mbps to 100 Mbps with free installation and 24/7 support.",
+                    "provider": {"@id": "https://rbfiber.onrender.com/#localbusiness"},
+                    "areaServed": "Bhupalpally",
+                    "offers": {
+                        "@type": "Offer",
+                        "priceCurrency": "INR",
+                        "price": "349",
+                        "url": "tel:7221030405"
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "serviceType": "CableOrSatelliteService",
+                    "name": "Digital TV & OTT Bundles",
+                    "description": "Digital TV packages with 150+ to 800+ channels and popular OTT bundles.",
+                    "provider": {"@id": "https://rbfiber.onrender.com/#localbusiness"},
+                    "offers": {
+                        "@type": "Offer",
+                        "priceCurrency": "INR",
+                        "price": "149",
+                        "url": "tel:7221030405"
+                    }
+                }
+            ]
+        }
+        </script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#home" id="logo-link" style="gap:8px;">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8RLrl6ewzQqZMp7KtxE0O9h5DWZ-b1stciA&s" alt="RB Fiber Logo" style="height:36px; width:auto; border-radius:6px; ">
@@ -1031,7 +1115,57 @@
         })();
     </script>
 
-   
+    <!-- Services (visible) -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">High-speed fiber broadband, digital TV and bundled OTT packages serving Bhupalpally and surrounding areas.</p>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="plan-card">
+                        <div class="plan-header text-center">
+                            <h5 class="mb-1">Broadband Internet</h5>
+                            <div class="plan-price">From Rs. <span>349</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                        </div>
+                        <ul class="plan-features">
+                            <li>Plans 30–100 Mbps</li>
+                            <li>Unlimited Data</li>
+                            <li>Free Installation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="plan-card">
+                        <div class="plan-header text-center">
+                            <h5 class="mb-1">Digital TV</h5>
+                            <div class="plan-price">From Rs. <span>149</span><small style="font-size:0.6rem;font-weight:600">/mo</small></div>
+                        </div>
+                        <ul class="plan-features">
+                            <li>150+ to 800+ channels</li>
+                            <li>Set-top box support</li>
+                            <li>Local & regional channels</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="plan-card">
+                        <div class="plan-header text-center">
+                            <h5 class="mb-1">OTT Bundles & IPTV</h5>
+                            <div class="plan-price">Bundled options available</div>
+                        </div>
+                        <ul class="plan-features">
+                            <li>Popular OTT apps included</li>
+                            <li>Family & Premium bundles</li>
+                            <li>Easy activation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <!-- FAQ Section -->
